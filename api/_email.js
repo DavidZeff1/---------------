@@ -1,5 +1,5 @@
 import { Resend } from 'resend'
-import { recipientEmails, recipientNames, urgencyLabels, typeLabels } from './_recipients.js'
+import { recipientEmails, recipientNames, urgencyLabels, typeLabels, erpFormLabels } from './_recipients.js'
 
 const FROM = process.env.RESEND_FROM || 'onboarding@resend.dev'
 
@@ -40,7 +40,7 @@ function renderEmail(r) {
     ['טלפון', r.phone ? `<span dir="ltr">${escape(r.phone)}</span>` : '—'],
     ['ערוץ קשר מועדף', r.preferredContact === 'email' ? 'אימייל' : r.preferredContact === 'phone' ? 'טלפון' : 'לא משנה'],
     ['נמען', recipientNames[r.recipient] || r.recipient],
-    ['סוג פנייה', typeLabels[r.type] || r.type],
+    ['סוג פנייה', `${typeLabels[r.type] || r.type}${r.erpFormType ? ` – טופס ${erpFormLabels[r.erpFormType] || r.erpFormType}` : ''}`],
     ['דחיפות', urgencyLabels[r.urgency] || r.urgency],
     ['מספר תיק', r.caseNumber ? `<span dir="ltr">${escape(r.caseNumber)}</span>` : '—'],
   ]

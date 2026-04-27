@@ -27,3 +27,9 @@ export const typeLabels = {
   document: 'בקשת מסמך / אישור',
   other: 'אחר',
 }
+
+export const erpFormLabels = {
+  tzav: 'צו',
+  hachlata: 'החלטה',
+  hasama: 'השמה',
+}

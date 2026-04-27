@@ -60,6 +60,7 @@ async function create(req, res) {
     preferredContact: body.preferredContact,
     recipient: body.recipient,
     type: body.type,
+    erpFormType: body.erpFormType,
     urgency: body.urgency,
     subject: body.subject,
     body: body.body,

@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { loadRequests, deleteRequest } from '../lib/requestsStore.js'
-import { recipients, urgencyLevels, requestTypes } from '../data/recipients.js'
+import { recipients, urgencyLevels, requestTypes, erpFormTypes } from '../data/recipients.js'
 
 const recipientName = (id) =>
   id === 'any' ? 'כל הצוות' : recipients.find((r) => r.id === id)?.name || id
 const urgencyLabel = (id) => urgencyLevels.find((u) => u.id === id)?.label || id
 const typeLabel = (id) => requestTypes.find((t) => t.id === id)?.label || id
+const erpFormLabel = (id) => erpFormTypes.find((t) => t.id === id)?.label || id
 
 const urgencyColor = {
   low: 'bg-slate-100 text-slate-700',
@@ -96,7 +97,7 @@ export default function RequestsList() {
                         <h3 className="font-semibold text-slate-900 truncate">{r.subject}</h3>
                       </div>
                       <p className="text-sm text-slate-500 mt-1">
-                        מאת {r.fullName} · אל {recipientName(r.recipient)} · {typeLabel(r.type)}
+                        מאת {r.fullName} · אל {recipientName(r.recipient)} · {typeLabel(r.type)}{r.erpFormType ? ` – ${erpFormLabel(r.erpFormType)}` : ''}
                       </p>
                     </div>
                     <span className="text-xs text-slate-400 shrink-0">{fmtDate(r.createdAt)}</span>

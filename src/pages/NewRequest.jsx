@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { recipients, urgencyLevels, requestTypes } from '../data/recipients.js'
+import { recipients, urgencyLevels, requestTypes, erpFormTypes } from '../data/recipients.js'
 import { saveRequest, fileToBase64 } from '../lib/requestsStore.js'
 
 const empty = {
@@ -11,6 +11,7 @@ const empty = {
   phone: '',
   recipient: '',
   type: '',
+  erpFormType: '',
   urgency: 'low',
   subject: '',
   body: '',
@@ -34,6 +35,7 @@ export default function NewRequest() {
     if (!form.title.trim()) e.title = 'שדה חובה'
     if (!form.recipient) e.recipient = 'יש לבחור נמען'
     if (!form.type) e.type = 'יש לבחור סוג פנייה'
+    if (form.type === 'erp' && !form.erpFormType) e.erpFormType = 'יש לבחור סוג טופס'
     if (!form.subject.trim()) e.subject = 'שדה חובה'
     if (!form.body.trim()) e.body = 'שדה חובה'
     if (form.email && !/^\S+@\S+\.\S+$/.test(form.email)) e.email = 'אימייל לא תקין'
@@ -128,13 +130,27 @@ export default function NewRequest() {
               </select>
             </Field>
             <Field label="סוג פנייה" required error={errors.type}>
-              <select className={inp(errors.type)} value={form.type} onChange={update('type')}>
+              <select
+                className={inp(errors.type)}
+                value={form.type}
+                onChange={(e) => setForm({ ...form, type: e.target.value, erpFormType: '' })}
+              >
                 <option value="">בחר/י סוג</option>
                 {requestTypes.map((t) => (
                   <option key={t.id} value={t.id}>{t.label}</option>
                 ))}
               </select>
             </Field>
+            {form.type === 'erp' && (
+              <Field label="סוג טופס ב-ERP" required error={errors.erpFormType}>
+                <select className={inp(errors.erpFormType)} value={form.erpFormType} onChange={update('erpFormType')}>
+                  <option value="">בחר/י טופס</option>
+                  {erpFormTypes.map((t) => (
+                    <option key={t.id} value={t.id}>{t.label}</option>
+                  ))}
+                </select>
+              </Field>
+            )}
             <Field label="דחיפות">
               <select className={inp()} value={form.urgency} onChange={update('urgency')}>
                 {urgencyLevels.map((u) => (

@@ -12,6 +12,12 @@ export const urgencyLevels = [
   { id: 'critical', label: 'דחוף מאוד' },
 ]
 
+export const erpFormTypes = [
+  { id: 'tzav', label: 'צו' },
+  { id: 'hachlata', label: 'החלטה' },
+  { id: 'hasama', label: 'השמה' },
+]
+
 export const requestTypes = [
   { id: 'billing', label: 'חיוב / תחשיב' },
   { id: 'subsidy', label: 'השתתפות / סבסוד' },

@@ -72,4 +72,22 @@ export const guides = [
     description: 'נהלי סנכרון בין המערכות והתאמת רשומות.',
     tree: null,
   },
+  {
+    id: 'erp-tzav',
+    title: 'ERP – טופס צו',
+    description: 'מילוי טופס צו במערכת ה-ERP.',
+    tree: null,
+  },
+  {
+    id: 'erp-hachlata',
+    title: 'ERP – טופס החלטה',
+    description: 'מילוי טופס החלטה במערכת ה-ERP.',
+    tree: null,
+  },
+  {
+    id: 'erp-hasama',
+    title: 'ERP – טופס השמה',
+    description: 'מילוי טופס השמה במערכת ה-ERP.',
+    tree: null,
+  },
 ]
