@@ -10,8 +10,15 @@ export default function Layout() {
             <span className="text-xl font-bold text-slate-900">מדריך התחשיבן</span>
             <span className="text-xs text-slate-500">שירותים חברתיים – מועצה אזורית גוש עציון</span>
           </Link>
-          <nav className="hidden md:flex gap-2">
+          <nav className="hidden md:flex gap-2 items-center">
             <NavItem to="/">בית</NavItem>
+            <NavItem to="/requests">פניות</NavItem>
+            <Link
+              to="/requests/new"
+              className="mr-2 px-3 py-1.5 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
+            >
+              פנייה חדשה
+            </Link>
           </nav>
         </div>
       </header>

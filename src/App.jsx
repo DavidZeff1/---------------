@@ -2,6 +2,8 @@ import { Routes, Route, Link } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
 import GuidePage from './pages/GuidePage.jsx'
+import NewRequest from './pages/NewRequest.jsx'
+import RequestsList from './pages/RequestsList.jsx'
 import { guides } from './data/guides.js'
 
 export default function App() {
@@ -12,6 +14,8 @@ export default function App() {
         {guides.map((g) => (
           <Route key={g.id} path={`guide/${g.id}`} element={<GuidePage guide={g} />} />
         ))}
+        <Route path="requests" element={<RequestsList />} />
+        <Route path="requests/new" element={<NewRequest />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

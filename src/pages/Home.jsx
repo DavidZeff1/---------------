@@ -6,10 +6,18 @@ export default function Home() {
     <div>
       <div className="bg-white rounded-lg border border-slate-200 p-8 mb-6">
         <h1 className="text-3xl font-bold text-slate-900 mb-3">ברוך הבא למדריך התחשיבן</h1>
-        <p className="text-slate-600 leading-relaxed">
+        <p className="text-slate-600 leading-relaxed mb-4">
           מדריך פנימי לתפקיד התחשיבן במחלקת השירותים החברתיים. כולל עצי החלטה לתהליכי עבודה,
           התנהלות מול ה-CRM וה-ERP, וטיפול בניירת.
         </p>
+        <div className="flex gap-3 flex-wrap">
+          <Link to="/requests/new" className="px-4 py-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700">
+            שליחת פנייה לצוות
+          </Link>
+          <Link to="/requests" className="px-4 py-2 border border-slate-300 text-slate-700 rounded hover:bg-slate-50">
+            צפייה בפניות
+          </Link>
+        </div>
       </div>
 
       <h2 className="text-xl font-semibold text-slate-800 mb-4">בחר/י מדריך</h2>
