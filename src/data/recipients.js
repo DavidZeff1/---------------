@@ -1,7 +1,8 @@
+// TODO: החלף את כתובות המייל בכתובות האמיתיות
 export const recipients = [
-  { id: 'yeela', name: 'יעלה' },
-  { id: 'rachel', name: 'רחל' },
-  { id: 'david', name: 'דוד' },
+  { id: 'yeela', name: 'יעלה', email: 'yeela@example.com' },
+  { id: 'rachel', name: 'רחל', email: 'rachel@example.com' },
+  { id: 'david', name: 'דוד', email: 'david@example.com' },
 ]
 
 export const urgencyLevels = [

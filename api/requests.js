@@ -1,4 +1,5 @@
 import { put, list, del } from '@vercel/blob'
+import { notifyRecipients } from './_email.js'
 
 const PREFIX = 'requests/'
 
@@ -71,6 +72,13 @@ async function create(req, res) {
     contentType: 'application/json',
     addRandomSuffix: false,
   })
+
+  try {
+    await notifyRecipients(record)
+  } catch (e) {
+    console.error('email notification failed:', e)
+    // non-fatal: the record is saved even if email fails
+  }
 
   return res.status(201).json(record)
 }
