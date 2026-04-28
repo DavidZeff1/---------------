@@ -1,8 +1,11 @@
+import { budgetReportGuide } from './budgetReportGuide.js'
+
 // כל מדריך מכיל עץ החלטה. כדי להוסיף מדריך חדש - הוסף אובייקט חדש למערך.
 // מבנה עץ: { start: 'מזהה_התחלה', nodes: { id: { title, body, notes?, options?: [{label, next}] } } }
 // צומת ללא options נחשב כסוף התהליך.
 
 export const guides = [
+  budgetReportGuide,
   {
     id: 'new-case',
     title: 'פתיחת תיק חדש',
